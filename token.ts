@@ -35,6 +35,7 @@ function getBalance(address: string): Promise<BigNumber> {
 export const useBalance = (address?: string) => {
   return useSWR(address ? [address, "balance"] : undefined, getBalance, {
     suspense: false,
+    refreshInterval: 10e3,
   });
 };
 

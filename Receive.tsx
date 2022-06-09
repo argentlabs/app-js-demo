@@ -1,8 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Clipboard, SafeAreaView } from "react-native";
 import { useWallet } from "./wallet";
-import { transfer, useBalance } from "./token";
-import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components/native";
 import QRMock from "./icons/QRMock.svg";
 import { FC } from "react";
@@ -57,8 +55,6 @@ const Address: FC<{ address?: string }> = ({ address }) => {
 
 export default function Receive() {
   const wallet = useWallet();
-  const { navigate } = useNavigation();
-  const { data: balance, isValidating, mutate } = useBalance(wallet.address);
 
   return (
     <SafeAreaView
