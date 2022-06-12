@@ -1,16 +1,10 @@
 import Erc20Abi from "./abi/ERC20.json";
-import {
-  Abi,
-  AccountInterface,
-  Contract,
-  defaultProvider,
-  number,
-  uint256,
-} from "starknet";
+import { Abi, AccountInterface, Contract, number, uint256 } from "starknet";
 import { Uint256 } from "starknet/dist/utils/uint256";
 import { BigNumber, utils } from "ethers";
 import useSWR from "swr";
 import { BigNumberish } from "starknet/dist/utils/number";
+import { provider } from "./wallet";
 
 const token = {
   name: "Ether",
@@ -20,11 +14,7 @@ const token = {
   image: "https://dv3jj1unlp2jl.cloudfront.net/128/color/eth.png",
 };
 
-const etherContract = new Contract(
-  Erc20Abi as Abi,
-  token.address,
-  defaultProvider
-);
+const etherContract = new Contract(Erc20Abi as Abi, token.address, provider);
 
 function getBalance(address: string): Promise<BigNumber> {
   return etherContract.balanceOf(address).then(([balance]: [Uint256]) => {

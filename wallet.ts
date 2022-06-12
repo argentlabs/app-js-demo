@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useMemo, useState } from "react";
 import { Account, Provider, ec, KeyPair } from "starknet";
 
-const provider = new Provider({ network: "mainnet-alpha" });
+export const provider = new Provider({ network: "mainnet-alpha" });
 
 export const useWallet = () => {
   const [keyPair, setKeyPair] = useState<KeyPair>();
