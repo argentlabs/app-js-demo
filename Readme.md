@@ -1,3 +1,5 @@
+Funds are taken! Somebody discovered them and tranfered them out :) Congrats!
+
 Starknet.js in React Native
 ===
 
